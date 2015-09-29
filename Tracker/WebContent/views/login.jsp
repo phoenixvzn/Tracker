@@ -21,10 +21,10 @@
   </div>
   <div class="form">
     <h2>Login to your account</h2>
-    <form>
-      <input type="text" placeholder="Username"/>
-      <input type="password" placeholder="Password"/>
-      <button>Login</button>
+    <form action="login" method="post" id="loginForm">
+      <input type="text" name="name" placeholder="Username"/>
+      <input type="password" name="pwd" placeholder="Password"/>
+      <button onclick="document.getElementById('loginForm').submit();">Login</button>
     </form>
   </div>
   <!--  div class="form">

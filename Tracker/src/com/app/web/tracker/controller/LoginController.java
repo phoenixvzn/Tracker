@@ -64,4 +64,15 @@ public class LoginController {
 		model.setViewName("login");
 		return model;
 	}
+	
+	/*@RequestMapping(value="welcome", method = RequestMethod.GET)
+	public ModelAndView welcome(ModelMap models, HttpServletRequest request) {
+		HttpSession session = request.getSession(false);
+		
+		session.invalidate();
+		
+		ModelAndView model = new ModelAndView();
+		model.setViewName("mainLayout");
+		return model;
+	}*/
 }

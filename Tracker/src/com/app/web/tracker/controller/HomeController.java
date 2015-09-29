@@ -28,7 +28,8 @@ public class HomeController {
 		ModelAndView model = new ModelAndView();
 	
 		model.addObject("name", user.getUsername());
-		model.setViewName("mainLayout");
+		//model.setViewName("mainLayout");
+		model.setViewName("deviceTrackingApp");
 		return model;
 	}
 }
