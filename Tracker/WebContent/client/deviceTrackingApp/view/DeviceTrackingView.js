@@ -124,14 +124,19 @@ Ext.define("DeviceTrackingApp.view.DeviceTrackingView",{
       				        gmapType: 'map',
 							itemId : 'dtMap',
       				        center: {
-      				            geoCodeAddr: "Chennai",
+      				            geoCodeAddr: "Newyork",
       				            marker: {
-      				                title: 'Vicky Home'
+      				                title: 'Newyork'
       				            }
       				        },
       				        mapOptions : {
       				            mapTypeId: google.maps.MapTypeId.ROADMAP
-      				        }
+      				        },
+							listeners : {
+								mapready : function(ux,mapObj){
+									mapCtrl = mapObj;
+								}
+							}
 	        	          }
 	        	 
 	         },
@@ -170,27 +175,8 @@ Ext.define("DeviceTrackingApp.view.DeviceTrackingView",{
 							text : 'Son',
 							margin : '5 5 5 5',
 							itemId : 'device3',
-							width : 120,
-							listeners : {
-								click : function(btn){
-									
-									var deviceTrackingView = btn.up('[itemId=dtMapPanel]').up('[itemId=deviceTrackingParentContainer]');
-									var gmapCtrl = deviceTrackingView.down('[itemId=dtMap]');
-									//var mpoint = new google.maps.LatLng(13,80);
-									//var marker = gmapCtrl.addMarker(mpoint,{title:'Device1'},false,false, null);
-									//gmapCtrl.center=mpoint;
-									
-									gmapCtrl.center= {
-										geoCodeAddr: "Madurai",
-										marker: {
-											title: 'Vicky Home'
-										}
-									};
-									gmapCtrl.center();
-									google.maps.event.trigger(gmapCtrl, 'resize');
-								}
-							}
-						
+							width : 120
+							
 						 },{
 							xtype : 'button',
 							text : 'Daughter',

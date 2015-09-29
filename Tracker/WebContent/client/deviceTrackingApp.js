@@ -18,6 +18,5 @@ Ext.application({
 			items : [deviceTrackingView]
 		});
 		
-		alert(444);
 	}
 });
