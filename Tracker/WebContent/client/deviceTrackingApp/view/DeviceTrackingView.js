@@ -172,6 +172,13 @@ Ext.define("DeviceTrackingApp.view.DeviceTrackingView",{
 					bodyStyle: 'background-color:#f3f3f3;',
 					 layout : {type :'vbox',pack : 'start'},
 					 items : [
+						{
+							xtype : 'panel',
+							margin : '5 5 5 5',
+							html:"<div style='width:120px;padding-top:5px;height:30px;background-color:#66dd66;color:white;font-weight:bold;text-align:center'>Devices</div>",
+							frame:false,
+							border:false,
+						 },
 						 {
 							xtype : 'button',
 							text : 'Car',
