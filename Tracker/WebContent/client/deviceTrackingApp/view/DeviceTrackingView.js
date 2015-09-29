@@ -15,7 +15,7 @@ Ext.define("DeviceTrackingApp.view.DeviceTrackingView",{
 	        	 margin : '5 5 5 10',
 	        	 //height : "8%",
 	        	 //width : "100%",
-				 anchor : "100% 8%",
+				 anchor : "100% 7%",
 				 style : 'background-color:#6688FF',
 	        	 layout : {
 	        		 type : 'hbox'
@@ -114,7 +114,7 @@ Ext.define("DeviceTrackingApp.view.DeviceTrackingView",{
 					{
 	        	 xtype : "container",
 	        	 //html : "Test this now",
-	        	 margin : '20 20 5 10',
+	        	 margin : '10 5 5 10',
 	        	 //region : "center",
 	        	 width : "85%",
 				 height : "100%",
@@ -138,13 +138,15 @@ Ext.define("DeviceTrackingApp.view.DeviceTrackingView",{
 	         {
 	        	 xtype : "panel",
 	        	 //html : "navigator",
-	        	 margin : '20 5 5 5',
+	        	 margin : '10 5 5 5',
 	        	 //region : "east",
 	        		width : "12%",
 					height : "100%",
-					collapsible : true,
-					title : 'Devices',
-					border:"0 0 0 0",
+					frame:false,
+					title : '',
+					border:false,
+					style:'background-color:#f3f3f3',
+					bodyStyle: 'background-color:#f3f3f3;',
 					 layout : {type :'vbox',pack : 'start'},
 					 items : [
 						 {
