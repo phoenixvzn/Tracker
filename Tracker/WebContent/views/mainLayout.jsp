@@ -3,6 +3,7 @@
 <head>
 <title>Tracker</title>
 <%@include file="metaInfo.jsp" %>
+<script type="text/javascript" src="../client/deviceTrackingApp.js"></script>
 </head>
 <body>
 <div class='header'>
@@ -20,5 +21,6 @@
 	<li><a class='current' href="#">Home</a></li>
 	</ul>
 </div>	
+<div id='mainForm'></div>
 </body>
 </html>
