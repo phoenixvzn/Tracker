@@ -22,9 +22,10 @@
   </div>
   <div class="form">
     <h2>One-Time Password</h2>
+    <div class='errMessage'>${errMsg}</div></td>
     <form action='<%=Constant.MAIN_URI%>/app/verify' id='verifyForm' method="post">
       <input type="password" placeholder="Password" name="password"/>
-      <button onclick="document.getElementById('verifyForm').submit();">Verify</button>
+      <button>Verify</button>
     </form>
   </div>
   <!--  div class="form">

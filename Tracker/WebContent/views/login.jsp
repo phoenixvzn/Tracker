@@ -21,10 +21,11 @@
   </div>
   <div class="form">
     <h2>Login to your account</h2>
+    <div class='errMessage'>${errMsg}</div></td>
     <form action="login" method="post" id="loginForm">
       <input type="text" name="name" placeholder="Username"/>
       <input type="password" name="pwd" placeholder="Password"/>
-      <button onclick="document.getElementById('loginForm').submit();">Login</button>
+      <button>Login</button>
     </form>
   </div>
   <!--  div class="form">

@@ -54,7 +54,10 @@ public class LoginController {
 		ModelAndView model = new ModelAndView();
 		if(isLoginSuccess){
 			//model.setViewName("redirect:/app/welcome");
-			//sendMail();
+			String vNo = String.valueOf((int) Math.round(Math.random() * 9999));
+			User user = (User)httpSession.getAttribute("User");
+			user.setOnePass(vNo);
+			sendMail(vNo);
 			model.setViewName("verification");
 		}else{
 			model.setViewName("login");
@@ -68,9 +71,11 @@ public class LoginController {
 	public ModelAndView verify(ModelMap models, HttpServletRequest request){
 		ModelAndView model = new ModelAndView();
 		String pwd=request.getParameter("password");
-		if(pwd.equals("12345")){
+		User user = (User)httpSession.getAttribute("User");
+		if(pwd.equals(user.getOnePass())){
 			model.setViewName("redirect:/app/welcome");
 		}else{
+			model.addObject("errMsg","Invalid one-time password");
 			model.setViewName("verification");
 		}
 		return model;
@@ -97,7 +102,7 @@ public class LoginController {
 		model.setViewName("mainLayout");
 		return model;
 	}*/
-	public void sendMail(){
+	public void sendMail(String vNo){
 		// Recipient's email ID needs to be mentioned.
 	      String to = "vignesh.nagarajan@verizon.com";
 
@@ -130,7 +135,7 @@ public class LoginController {
 	         message.setSubject("One-Time Password");
 
 	         // Now set the actual message
-	         message.setText("your one-time password is 12345");
+	         message.setText("your one-time password is "+vNo);
 
 	         // Send message
 	         Transport.send(message);

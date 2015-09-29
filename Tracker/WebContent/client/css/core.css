@@ -16,3 +16,6 @@ a:hover {
 a:active {
     text-decoration: underline;
 }
+.errMessage{
+	color:red
+}

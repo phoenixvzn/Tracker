@@ -5,6 +5,16 @@ public class User {
 	private String username;
 	private String password;
 	private String email;
+	private String onePass;
+	
+
+	public String getOnePass() {
+		return onePass;
+	}
+
+	public void setOnePass(String onePass) {
+		this.onePass = onePass;
+	}
 
 	public int getId() {
 		return id;
