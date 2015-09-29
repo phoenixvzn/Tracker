@@ -67,13 +67,30 @@ Ext.define("DeviceTrackingApp.view.DeviceTrackingView",{
 	        	    	        	   margin : '15 5 5 5',
 									   style:'color:white;font-weight:bold'
 	        	    	           },
-	        	    	           {
+	        	    	           /* {
 	        	    	        	   xtype : 'label',
 	        	    	        	   text : 'Logout',
 	        	    	        	   margin : '15 5 5 25',
 									   style:'color:white;font-weight:bold'
 	        	    	        		   
-	        	    	           }
+	        	    	           } */ 
+								   {
+										xtype: 'component',
+										autoEl: {
+											tag: 'a',
+											href: '#',
+											html: 'Logout'
+										},
+										margin : '15 5 5 25',
+										style:'color:white;font-weight:bold',
+										listeners: {
+											click: {
+												element: 'el', //bind to the underlying el property on the panel
+												fn: function(){ alert(99); }
+											}
+										}
+
+									}	 
 	        	    	  ]
 	        	      }
 	        	 ]
