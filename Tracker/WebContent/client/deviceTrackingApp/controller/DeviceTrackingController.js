@@ -117,6 +117,7 @@ Ext.define("DeviceTrackingApp.controller.DeviceTrackingController",{
 		var myCenter = new google.maps.LatLng(x,y);
 		var marker = new google.maps.Marker({
 		  position: myCenter,
+		  animation : google.maps.Animation.BOUNCE,
 		  title:'Click to zoom'
 		  });
 		marker.setMap(mapCtrl);

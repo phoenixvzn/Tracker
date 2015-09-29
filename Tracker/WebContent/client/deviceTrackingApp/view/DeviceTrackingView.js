@@ -126,7 +126,8 @@ Ext.define("DeviceTrackingApp.view.DeviceTrackingView",{
       				        center: {
       				            geoCodeAddr: "Newyork",
       				            marker: {
-      				                title: 'Newyork'
+      				                title: 'Newyork',
+									animation : google.maps.Animation.BOUNCE
       				            }
       				        },
       				        mapOptions : {
