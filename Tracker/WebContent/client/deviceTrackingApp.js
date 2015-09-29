@@ -7,7 +7,6 @@ Ext.application({
 	appFolder:"../client/deviceTrackingApp",
 	controllers : "DeviceTrackingController",
 	launch : function(){
-		alert(222);
 		
 		var deviceTrackingView = Ext.create("DeviceTrackingApp.view.DeviceTrackingView",{
 			itemId : 'deviceTrackingParentContainer'

@@ -15,17 +15,16 @@ Ext.define("DeviceTrackingApp.view.DeviceTrackingView",{
 	        	 margin : '5 5 5 10',
 	        	 //height : "8%",
 	        	 //width : "100%",
-				 anchor : "100% 10%",
-				 style : 'background-color:blue',
+				 anchor : "100% 8%",
+				 style : 'background-color:#6688FF',
 	        	 layout : {
 	        		 type : 'hbox'
 	        	 },
 				 items : [
 	        	      {
 	        	    	  xtype : 'image',
-	        	    	  src : '../client/extjs/build/images/logo.png',
-	        	    	  width : '20%', 
-	        	    	  height : '100%'	 
+						  margin : '5 5 5 10',
+	        	    	  src : '../client/extjs/build/images/logo.png'
 	        	      },
 					  /* {
 						  
@@ -64,13 +63,15 @@ Ext.define("DeviceTrackingApp.view.DeviceTrackingView",{
 	        	    	  items : [
 	        	    	           {
 	        	    	        	   xtype : 'label',
-	        	    	        	   text : 'My Account',
-	        	    	        	   margin : '5 5 5 5'
+	        	    	        	   text : userName,
+	        	    	        	   margin : '15 5 5 5',
+									   style:'color:white;font-weight:bold'
 	        	    	           },
 	        	    	           {
 	        	    	        	   xtype : 'label',
-	        	    	        	   text : 'karsun',
-	        	    	        	   margin : '5 5 5 5'
+	        	    	        	   text : 'Logout',
+	        	    	        	   margin : '15 5 5 25',
+									   style:'color:white;font-weight:bold'
 	        	    	        		   
 	        	    	           }
 	        	    	  ]
@@ -80,7 +81,7 @@ Ext.define("DeviceTrackingApp.view.DeviceTrackingView",{
 	         }, 
 			 {
 				 xtype : "container",
-				 anchor : "92% 5%",
+				 anchor : "82% 5%",
 				 layout : {
 					 type : 'hbox',
 					 pack : 'end'
@@ -89,25 +90,17 @@ Ext.define("DeviceTrackingApp.view.DeviceTrackingView",{
 					{
 							xtype : 'button',
 							text : 'History',
-							margin : '5 5 5 5',
-							itemId : 'history1',
+							margin : '5 0 5 5',
+							itemId : 'History',
 							width : 100
 						 },
 						 {
 							xtype : 'button',
-							text : 'Device II',
+							text : 'From Previous',
 							margin : '5 5 5 5',
 							itemId : 'history2',
-							width : 100
+							width : 120
 							
-						
-						 },
-						 {
-							xtype : 'button',
-							text : 'Device III',
-							margin : '5 5 5 5',
-							itemId : 'history3',
-							width : 100
 						
 						 }
 				 ]
@@ -123,7 +116,7 @@ Ext.define("DeviceTrackingApp.view.DeviceTrackingView",{
 	        	 //html : "Test this now",
 	        	 margin : '20 20 5 10',
 	        	 //region : "center",
-	        	 width : "92%",
+	        	 width : "85%",
 				 height : "100%",
 	        	 layout : 'fit',
 	        	 style : 'border : 1px solid black',
@@ -147,38 +140,38 @@ Ext.define("DeviceTrackingApp.view.DeviceTrackingView",{
 	        	 //html : "navigator",
 	        	 margin : '20 5 5 5',
 	        	 //region : "east",
-	        		width : "8%",
+	        		width : "12%",
 					height : "100%",
 					collapsible : true,
 					title : 'Devices',
-		        	 width : "8%",
+					border:"0 0 0 0",
 					 layout : {type :'vbox',pack : 'start'},
 					 items : [
 						 {
 							xtype : 'button',
-							text : 'Device I',
+							text : 'Car',
 							margin : '5 5 5 5',
 							itemId : 'device1',
-							width : 100
+							width : 120
 						 },
 						 {
 							xtype : 'button',
-							text : 'Device II',
+							text : 'Bike',
 							margin : '5 5 5 5',
 							itemId : 'device2',
-							width : 100
+							width : 120
 							
 						
 						 },
 						 {
 							xtype : 'button',
-							text : 'Device III',
+							text : 'Son',
 							margin : '5 5 5 5',
 							itemId : 'device3',
-							width : 100,
+							width : 120,
 							listeners : {
 								click : function(btn){
-									alert(btn.up('[itemId=dtMapPanel]'));
+									
 									var deviceTrackingView = btn.up('[itemId=dtMapPanel]').up('[itemId=deviceTrackingParentContainer]');
 									var gmapCtrl = deviceTrackingView.down('[itemId=dtMap]');
 									//var mpoint = new google.maps.LatLng(13,80);
@@ -186,33 +179,30 @@ Ext.define("DeviceTrackingApp.view.DeviceTrackingView",{
 									//gmapCtrl.center=mpoint;
 									
 									gmapCtrl.center= {
-      				            geoCodeAddr: "Madurai",
-      				            marker: {
-      				                title: 'Vicky Home'
-      				            }
-      				        };
-									
-									
+										geoCodeAddr: "Madurai",
+										marker: {
+											title: 'Vicky Home'
+										}
+									};
 									gmapCtrl.center();
 									google.maps.event.trigger(gmapCtrl, 'resize');
-									alert('Done2');
 								}
 							}
 						
 						 },{
 							xtype : 'button',
-							text : 'Device IV',
+							text : 'Daughter',
 							margin : '5 5 5 5',
 							itemId : 'device4',
-							width : 100
+							width : 120
 						
 						 },
 						 {
 							xtype : 'button',
-							text : 'Device V',
+							text : 'Technician',
 							margin : '5 5 5 5',
 							itemId : 'device5',
-							width : 100
+							width : 120
 						
 						 }
 					 

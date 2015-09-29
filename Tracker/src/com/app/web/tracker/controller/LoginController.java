@@ -54,10 +54,10 @@ public class LoginController {
 		ModelAndView model = new ModelAndView();
 		if(isLoginSuccess){
 			//model.setViewName("redirect:/app/welcome");
-			String vNo = String.valueOf((int) Math.round(Math.random() * 9999));
+			String vNo = "12345";String.valueOf((int) Math.round(Math.random() * 9999));
 			User user = (User)httpSession.getAttribute("User");
 			user.setOnePass(vNo);
-			sendMail(vNo);
+			//sendMail(vNo);
 			model.setViewName("verification");
 		}else{
 			model.setViewName("login");
