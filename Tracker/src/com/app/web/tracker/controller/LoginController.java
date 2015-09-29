@@ -1,6 +1,13 @@
 package com.app.web.tracker.controller;
 import java.util.List;
+import java.util.Properties;
 
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -46,10 +53,25 @@ public class LoginController {
 		}
 		ModelAndView model = new ModelAndView();
 		if(isLoginSuccess){
-			model.setViewName("redirect:/app/welcome");
+			//model.setViewName("redirect:/app/welcome");
+			//sendMail();
+			model.setViewName("verification");
 		}else{
 			model.setViewName("login");
 			model.addObject("errMsg","Username or password are invalid");
+		}
+		return model;
+	}
+	
+
+	@RequestMapping(value="verify", method = RequestMethod.POST)
+	public ModelAndView verify(ModelMap models, HttpServletRequest request){
+		ModelAndView model = new ModelAndView();
+		String pwd=request.getParameter("password");
+		if(pwd.equals("12345")){
+			model.setViewName("redirect:/app/welcome");
+		}else{
+			model.setViewName("verification");
 		}
 		return model;
 	}
@@ -75,4 +97,46 @@ public class LoginController {
 		model.setViewName("mainLayout");
 		return model;
 	}*/
+	public void sendMail(){
+		// Recipient's email ID needs to be mentioned.
+	      String to = "vignesh.nagarajan@verizon.com";
+
+	      // Sender's email ID needs to be mentioned
+	      String from = "vignesh.nagarajan@verizon.com";
+
+	      // Assuming you are sending email from localhost
+	      String host = "smtp.verizon.com";
+
+	      // Get system properties
+	      Properties properties = System.getProperties();
+
+	      // Setup mail server
+	      properties.setProperty("mail.smtp.host", host);
+
+	      // Get the default Session object.
+	      Session session = Session.getDefaultInstance(properties);
+
+	      try{
+	         // Create a default MimeMessage object.
+	         MimeMessage message = new MimeMessage(session);
+
+	         // Set From: header field of the header.
+	         message.setFrom(new InternetAddress(from));
+
+	         // Set To: header field of the header.
+	         message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+
+	         // Set Subject: header field
+	         message.setSubject("One-Time Password");
+
+	         // Now set the actual message
+	         message.setText("your one-time password is 12345");
+
+	         // Send message
+	         Transport.send(message);
+	         System.out.println("Sent message successfully....");
+	      }catch (MessagingException mex) {
+	         mex.printStackTrace();
+	      }
+	}
 }
