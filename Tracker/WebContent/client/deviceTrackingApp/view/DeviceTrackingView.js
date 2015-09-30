@@ -78,15 +78,15 @@ Ext.define("DeviceTrackingApp.view.DeviceTrackingView",{
 										xtype: 'component',
 										autoEl: {
 											tag: 'a',
-											href: '#',
-											html: 'Logout'
+											href: MAIN_URI+'/app/logout',
+											html: "Logout"
 										},
 										margin : '15 5 5 25',
 										style:'color:white;font-weight:bold',
 										listeners: {
 											click: {
 												element: 'el', //bind to the underlying el property on the panel
-												fn: function(){ alert(99); }
+												fn: function(){  }
 											}
 										}
 
