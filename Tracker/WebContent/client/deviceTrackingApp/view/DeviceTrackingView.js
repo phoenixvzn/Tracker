@@ -141,11 +141,11 @@ Ext.define("DeviceTrackingApp.view.DeviceTrackingView",{
       				        gmapType: 'map',
 							itemId : 'dtMap',
       				        center: {
-      				            geoCodeAddr: "Newyork",
-      				            marker: {
+      				            geoCodeAddr: "Newyork"
+      				            /* marker: {
       				                title: 'Newyork',
 									animation : google.maps.Animation.BOUNCE
-      				            }
+      				            } */
       				        },
       				        mapOptions : {
       				            mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -153,6 +153,20 @@ Ext.define("DeviceTrackingApp.view.DeviceTrackingView",{
 							listeners : {
 								mapready : function(ux,mapObj){
 									mapCtrl = mapObj;
+									var x = 40.7127;
+									var y = -74.0059;
+									var myCenter = new google.maps.LatLng(x,y);
+									var marker = new google.maps.Marker({
+										position: myCenter,
+										animation : google.maps.Animation.BOUNCE,
+										title:'Click to zoom'
+									});
+									//}
+									
+									marker.setMap(mapCtrl);
+									mapCtrl.setCenter(marker.getPosition());
+									ux.up('[itemId=deviceTrackingParentContainer]').marker = marker;
+									
 								}
 							}
 	        	          }
@@ -215,6 +229,9 @@ Ext.define("DeviceTrackingApp.view.DeviceTrackingView",{
 							text : 'Technician',
 							margin : '5 5 5 5',
 							itemId : 'device5',
+							style : {
+								background : 'green'
+							},
 							width : 120
 						
 						 }
