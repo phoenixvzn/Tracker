@@ -91,7 +91,13 @@ public class LoginController {
 		model.setViewName("login");
 		return model;
 	}
-	
+	@RequestMapping(value="specrunner", method = RequestMethod.GET)
+	public ModelAndView specRunner(ModelMap models, HttpServletRequest request) {
+		
+		ModelAndView model = new ModelAndView();
+		model.setViewName("SpecRunner");
+		return model;
+	}
 	/*@RequestMapping(value="welcome", method = RequestMethod.GET)
 	public ModelAndView welcome(ModelMap models, HttpServletRequest request) {
 		HttpSession session = request.getSession(false);
