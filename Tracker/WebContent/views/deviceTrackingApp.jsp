@@ -1,3 +1,4 @@
+<%@page import="com.app.web.tracker.constant.Constant"%>
 <%@page import="com.app.web.tracker.beans.User"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -13,7 +14,7 @@ String userName = user.getUsername();
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Tested</title>
+<title>Tracker</title>
 </head>
 <script type="text/javascript" src="../client/extjs/build/ext-all.js">
 
@@ -25,6 +26,7 @@ String userName = user.getUsername();
 
 <script type="text/javascript">
 	var userName = "<%=userName%>";
+	var MAIN_URI = "<%=Constant.MAIN_URI%>";
 </script>
 
 <body>
